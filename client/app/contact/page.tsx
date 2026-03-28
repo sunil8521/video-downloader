@@ -53,7 +53,7 @@ export default function ContactPage() {
                 className="w-full bg-surface border border-border rounded-xl p-4 text-sm outline-none focus:border-accent transition-colors resize-none"
               />
             </div>
-            <Button type="submit" variant="hero" size="lg" className="w-full">
+            <Button type="submit" variant="default" size="lg" className="w-full">
               <Send className="h-4 w-4" /> Send Message
             </Button>
           </form>

@@ -22,7 +22,7 @@ export function HomeFaq() {
         <p className="text-center text-muted-foreground mb-12">
           Everything you need to know about SnapLoad.
         </p>
-        <Accordion type="single" collapsible className="space-y-3">
+        <Accordion className="space-y-3">
           {faqs.map((faq, i) => (
             <AccordionItem
               key={i}
