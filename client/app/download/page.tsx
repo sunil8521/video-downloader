@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
@@ -44,7 +44,7 @@ const PlatformIcon = ({ platform }: { platform: string }) => {
   return <Youtube className="h-3.5 w-3.5" />;
 };
 
-export default function DownloadPage() {
+function DownloadPageContent() {
   const searchParams = useSearchParams();
   const urlParam = searchParams.get("url") || "";
 
@@ -394,5 +394,17 @@ export default function DownloadPage() {
       </div>
       <Footer />
     </div>
+  );
+}
+
+export default function DownloadPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-accent" />
+      </div>
+    }>
+      <DownloadPageContent />
+    </Suspense>
   );
 }
