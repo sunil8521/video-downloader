@@ -27,6 +27,7 @@ export function HeroInput() {
 
       // Navigate to the download page
       router.push(`/download?url=${encodeURIComponent(trimmed)}`);
+      
     } catch (err) {
       if (err instanceof ApiError) {
         toast.error(err.message);

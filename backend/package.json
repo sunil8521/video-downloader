@@ -6,8 +6,7 @@
   "scripts": {
     "start": "bun run src/index.ts",
     "dev": "bun --watch run src/index.ts",
-    "build": "bun build src/index.ts --outdir ./dist --target node"
-  },
+c  },
   "devDependencies": {
     "@types/bun": "latest",
     "@types/cors": "^2.8.19",
