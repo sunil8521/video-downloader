@@ -164,8 +164,11 @@ export async function runInstagramDownload(url: string, formatId: string, downlo
         const job = downloadJobs.get(downloadId);
         if (!job) return reject(new Error('Job not found'));
 
+        const formatArg = formatId === 'best' ? 'b' : formatId;
+
         const ytdlp = spawn('yt-dlp', [
-            '-f', formatId === 'best' ? 'best' : formatId,
+            '-f', formatArg,
+            '--merge-output-format', 'mp4',
             '-o', job.filePath,
             ...getCommonFlags(),
             ...getCookieArgs('instagram'),

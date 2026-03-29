@@ -71,7 +71,7 @@ export function DownloadProgressUI({ downloadId, onReset }: Props) {
           <div className="flex items-center justify-between text-sm">
             <span className="font-medium text-foreground">
               {downloadState === "merging"
-                ? "Merging video + audio..."
+                ? "Processing (M)..."
                 : `${Math.round(progress?.progress || 0)}%`}
             </span>
             <div className="flex items-center gap-3 text-muted-foreground">
@@ -89,7 +89,7 @@ export function DownloadProgressUI({ downloadId, onReset }: Props) {
 
           <p className="text-xs text-muted-foreground">
             {downloadState === "merging"
-              ? "Almost done! Combining video and audio tracks..."
+              ? "Almost done! Processing final high-quality video..."
               : "Preparing your file. Your browser will handle the final save."}
           </p>
         </div>

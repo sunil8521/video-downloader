@@ -332,9 +332,8 @@ function DownloadPageContent() {
                                 </>
                               )}
                               {isVideo && !vFmt.has_audio && (
-                                <span className="text-xs ml-1 text-amber-500 flex items-center gap-0.5">
-                                  <Zap className="h-3 w-3" />
-                                  + audio merge
+                                <span className="text-xs ml-1 text-muted-foreground flex items-center">
+                                  (M)
                                 </span>
                               )}
                             </div>
