@@ -12,12 +12,14 @@ import {runYouTubeDownload, runInstagramDownload} from "./helprs/video-downloade
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+app.set('trust proxy', 1); // Trust first proxy (Nginx) for express-rate-limit
+
 // ─── Middleware ───────────────────────────────────────────────────────────────
 
 app.use(helmet());
 
 app.use(cors({
-    origin: ["http://localhost:3000", "http://localhost:3002","http://localhost:3001"],
+    origin: ["https://snapload.sunilspace.in"],
     methods: ["GET", "POST"],
 }));
 app.use(express.json());
