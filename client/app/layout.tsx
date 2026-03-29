@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner"
@@ -19,6 +20,9 @@ export const metadata: Metadata = {
     "mp4 downloader",
     "hd video download",
   ],
+  verification: {
+    google: "KuOf0msuQVWBaOJD0x8UBIm-urQU6UaCjGdVVkASQSA",
+  },
   openGraph: {
     title: "SnapLoad — Free Video Downloader",
     description:
@@ -46,11 +50,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="font-sans">
-      <body
-        className="antialiased"
-      >
+      <body className="antialiased">
         {children}
         <Toaster richColors position="top-right" duration={5000} />
+
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-8W75KC9R2F"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-8W75KC9R2F');
+          `}
+        </Script>
       </body>
     </html>
   );
