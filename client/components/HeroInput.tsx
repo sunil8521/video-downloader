@@ -41,15 +41,15 @@ export function HeroInput() {
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-2xl mx-auto">
-      <div className="bg-background rounded-2xl shadow-xl p-2 flex flex-col sm:flex-row gap-2">
-        <div className="flex items-center flex-1 gap-3 px-4 h-14">
+      <div className="bg-background rounded-2xl shadow-xl p-2 flex items-center gap-2">
+        <div className="flex items-center flex-1 gap-2 sm:gap-3 px-2 sm:px-4 h-14">
           <Link2 className="h-5 w-5 text-muted-foreground shrink-0" />
           <input
             type="url"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder="Paste video link here..."
-            className="flex-1 w-full bg-transparent text-base outline-none min-w-0"
+            className="flex-1 w-full bg-transparent text-sm sm:text-base outline-none min-w-0 placeholder:text-muted-foreground/70"
           />
         </div>
 
@@ -57,15 +57,17 @@ export function HeroInput() {
           type="submit"
           variant="destructive"
           size="lg"
-          className="w-full sm:w-auto h-14 px-8"
+          className="h-14 px-4 sm:px-8 shrink-0"
           disabled={loading || !url.trim()}
         >
           {loading ? (
-            <Loader2 className="h-5 w-5 animate-spin mr-2" />
+            <Loader2 className="h-5 w-5 animate-spin sm:mr-2" />
           ) : (
-            <Download className="h-5 w-5 mr-2" />
+            <Download className="h-5 w-5 sm:mr-2" />
           )}
-          {loading ? "Processing..." : "Download Now"}
+          <span className="hidden sm:inline">
+            {loading ? "Processing..." : "Download Now"}
+          </span>
         </Button>
       </div>
     </form>
